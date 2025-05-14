@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import TaskForm from './components/TaskForm';
 import TaskList from './components/TaskList';
 import StatsPanel from './components/StatsPanel';
-import ThemeToggle from './components/ThemeToggle';
 import './index.css';
 
 const App = () => {
@@ -16,11 +15,11 @@ const App = () => {
   }, [tasks]);
 
   return (
-    <div className="min-h-screen bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-white p-4">
+    <div className="min-h-screen bg-gray-100 text-gray-800 p-4">
       <div className="max-w-3xl mx-auto">
         <div className="flex justify-between items-center mb-4">
           <h1 className="text-3xl font-bold">Smart Task Manager</h1>
-          <ThemeToggle />
+
         </div>
         <TaskForm tasks={tasks} setTasks={setTasks} />
         <TaskList tasks={tasks} setTasks={setTasks} />
