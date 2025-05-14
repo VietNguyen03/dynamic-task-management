@@ -22,7 +22,7 @@ const TaskForm = ({ tasks, setTasks }) => {
     <form onSubmit={addTask} className="mb-4">
       <input
         type="text"
-        placeholder="Task title"
+        placeholder="Enter task here"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
         className="p-2 border rounded w-full mb-2"
