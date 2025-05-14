@@ -22,7 +22,7 @@ const TaskItem = ({ task, toggleComplete, deleteTask }) => {
   </span>
 </span>
       </div>
-      <button onClick={() => deleteTask(task.id)} className="text-white bg-red-700 hover:bg-red-800 px-3 py-1 rounded">Delete</button>  //Delete button color
+      <button onClick={() => deleteTask(task.id)} className="text-white bg-red-700 hover:bg-red-800 px-3 py-1 rounded">Delete</button>  
     </div>
   );
 };
