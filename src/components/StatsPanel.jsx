@@ -53,7 +53,7 @@ const StatsPanel = ({ tasks }) => {
 
   return (
     <div className="bg-white dark:bg-gray-800 p-4 rounded shadow">
-      <h2 className="text-xl font-semibold mb-2">Task Statistics</h2>
+      <h2 className="text-xl font-semibold mb-2">Task Completion</h2>
       <Bar data={data} options={options} />
     </div>
   );

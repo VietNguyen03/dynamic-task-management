@@ -2,7 +2,7 @@ import React from 'react';
 
 const TaskItem = ({ task, toggleComplete, deleteTask }) => {
   return (
-    <div className="flex justify-between items-center bg-white dark:bg-gray-800 p-3 rounded shadow mb-2">
+    <div className="flex justify-between items-center bg-white dark:bg-gray-800 p-4 rounded shadow mb-4">
       <div>
         <input
           type="checkbox"
@@ -22,7 +22,7 @@ const TaskItem = ({ task, toggleComplete, deleteTask }) => {
   </span>
 </span>
       </div>
-      <button onClick={() => deleteTask(task.id)} className="text-red-600">Delete</button>
+      <button onClick={() => deleteTask(task.id)} className="text-white bg-red-700 hover:bg-red-800 px-3 py-1 rounded">Delete</button>  //Delete button color
     </div>
   );
 };
