@@ -32,6 +32,6 @@ const TaskItem = ({ task, toggleComplete, deleteTask }) => {
           </label>
         </div>
       );
-      
+};
 
 export default TaskItem;
