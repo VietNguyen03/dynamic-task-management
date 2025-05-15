@@ -9,9 +9,10 @@ const TaskForm = ({ tasks, setTasks }) => {
     if (!title.trim()) return;
     const newTask = {
       id: Date.now(),
-      title,
+      text: title, // Fix: match what StatsPanel expects
       priority,
       completed: false,
+      date: new Date() // Fix: add today's date
     };
     setTasks([...tasks, newTask]);
     setTitle('');
