@@ -18,7 +18,7 @@ const App = () => {
     <div className="min-h-screen bg-gray-100 text-gray-800 p-4">
       <div className="max-w-3xl mx-auto">
         <div className="flex justify-between items-center mb-4">
-          <h1 className="text-3xl font-bold">Smart Task Manager</h1>
+          <h1 className="text-3xl font-bold">Dynamic Task Management</h1>
 
         </div>
         <TaskForm tasks={tasks} setTasks={setTasks} />
