@@ -1,32 +1,54 @@
-import React, { useState } from 'react';
-import Calendar from 'react-calendar';
-import 'react-calendar/dist/Calendar.css';
+import React, { useMemo } from 'react';
+import { Calendar } from 'react-big-calendar';
+import { format, parse, startOfWeek, getDay } from 'date-fns';
+import { dateFnsLocalizer } from 'react-big-calendar';
+import 'react-big-calendar/lib/css/react-big-calendar.css';
+
+// Setup date-fns localizer
+const locales = {
+  'en-US': require('date-fns/locale/en-US'),
+};
+
+const localizer = dateFnsLocalizer({
+  format,
+  parse,
+  startOfWeek: () => startOfWeek(new Date(), { weekStartsOn: 1 }),
+  getDay,
+  locales,
+});
 
 const StatsPanel = ({ tasks }) => {
-  const [selectedDate, setSelectedDate] = useState(new Date());
-
-  // Optional: Highlight days with tasks
-  const tileContent = ({ date, view }) => {
-    if (view === 'month') {
-      const hasTask = tasks.some(
-        (task) =>
-          task.date &&
-          new Date(task.date).toDateString() === date.toDateString()
-      );
-      return hasTask ? (
-        <div className="w-2 h-2 bg-blue-500 rounded-full mx-auto mt-1"></div>
-      ) : null;
-    }
-  };
+  // Convert tasks into calendar events
+  const events = useMemo(() => {
+    return tasks.map((task) => ({
+      title: task.text,
+      start: new Date(task.date),
+      end: new Date(task.date),
+      allDay: true,
+    }));
+  }, [tasks]);
 
   return (
     <div className="bg-white dark:bg-gray-800 p-4 rounded shadow">
-      <h2 className="text-xl font-semibold mb-2">Task Calendar</h2>
-      <Calendar
-        onChange={setSelectedDate}
-        value={selectedDate}
-        tileContent={tileContent}
-      />
+      <h2 className="text-xl font-semibold mb-4">Task Calendar</h2>
+      <div style={{ height: 500 }}>
+        <Calendar
+          localizer={localizer}
+          events={events}
+          startAccessor="start"
+          endAccessor="end"
+          defaultView="month"
+          views={['month', 'week', 'day']}
+          eventPropGetter={(event) => ({
+            style: {
+              backgroundColor: '#10B981',
+              borderRadius: '6px',
+              color: 'white',
+              padding: '4px',
+            },
+          })}
+        />
+      </div>
     </div>
   );
 };
