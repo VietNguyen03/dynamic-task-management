@@ -5,9 +5,12 @@ import { dateFnsLocalizer } from 'react-big-calendar';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 
 // Setup date-fns localizer
+import enUS from 'date-fns/locale/en-US';
+
 const locales = {
-  'en-US': require('date-fns/locale/en-US'),
+  'en-US': enUS,
 };
+
 
 const localizer = dateFnsLocalizer({
   format,

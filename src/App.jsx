@@ -7,7 +7,10 @@ import './index.css';
 const App = () => {
   const [tasks, setTasks] = useState(() => {
     const saved = localStorage.getItem('tasks');
-    return saved ? JSON.parse(saved) : [];
+    return saved
+  ? JSON.parse(saved).filter(task => task.text && task.date)
+  : [];
+
   });
 
   useEffect(() => {
