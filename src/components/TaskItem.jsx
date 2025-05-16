@@ -13,13 +13,6 @@ const TaskItem = ({ task, toggleComplete, deleteTask }) => {
         <span className={task.completed ? 'line-through text-gray-500' : ''}>
           {task.text} ({task.priority.charAt(0).toUpperCase() + task.priority.slice(1)})
         </span>
-        <span
-          className={`ml-2 text-sm font-semibold px-2 py-1 rounded ${
-            task.priority === 'low' ? 'bg-green-200 text-green-800' : 'bg-red-200 text-red-800'
-          }`}
-        >
-          {task.priority.charAt(0).toUpperCase() + task.priority.slice(1)}
-        </span>
       </div>
       <button onClick={() => deleteTask(task.id)} className="text-red-500">Delete</button>
     </div>
