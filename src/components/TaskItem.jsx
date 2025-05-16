@@ -11,7 +11,7 @@ const TaskItem = ({ task, toggleComplete, deleteTask }) => {
           className="mr-2"
         />
         <span className={task.completed ? 'line-through text-gray-500' : ''}>
-          {task.text}
+          {task.text} ({task.priority.charAt(0).toUpperCase() + task.priority.slice(1)})
         </span>
         <span
           className={`ml-2 text-sm font-semibold px-2 py-1 rounded ${
