@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 const TaskForm = ({ tasks, setTasks }) => {
   const [title, setTitle] = useState('');
-  const [priority, setPriority] = useState('medium');
+  const [priority, setPriority] = useState('');
 
   const addTask = (e) => {
     e.preventDefault();
@@ -28,11 +28,16 @@ const TaskForm = ({ tasks, setTasks }) => {
         onChange={(e) => setTitle(e.target.value)}
         className="p-2 border rounded w-full mb-2"
       />
-      <select value={priority} onChange={(e) => setPriority(e.target.value)} className="p-2 border rounded w-full mb-2">
-        <option value="low">Low</option>
-        <option value="medium">Medium</option>
-        <option value="high">High</option>
-      </select>
+      <select
+        value={priority}
+        onChange={(e) => setPriority(e.target.value)}
+        className="p-2 border rounded w-full mb-2"
+        required
+>
+  <option value="" disabled>Select</option>
+  <option value="low">Low</option>
+  <option value="high">High</option>
+</select>
       <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded">Add Task</button>
     </form>
   );
