@@ -1,4 +1,6 @@
+import { TrashIcon } from '@heroicons/react/24/solid';
 import React from 'react';
+
 
 const TaskItem = ({ task, toggleComplete, deleteTask }) => {
   return (
@@ -14,7 +16,9 @@ const TaskItem = ({ task, toggleComplete, deleteTask }) => {
           {task.text} ({task.priority.charAt(0).toUpperCase() + task.priority.slice(1)})
         </span>
       </div>
-      <button onClick={() => deleteTask(task.id)} className="text-red-500">Delete</button>
+      <button onClick={() => deleteTask(task.id)} className="text-red-500 hover:text-red-700">
+  <TrashIcon className="h-5 w-5" />
+</button>
     </div>
   );
 };
