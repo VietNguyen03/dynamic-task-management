@@ -30,6 +30,7 @@ const StatsPanel = ({ tasks }) => {
         start: new Date(task.date),
         end: new Date(task.date),
         allDay: true,
+        priority: task.priority,
       }));
   }, [tasks]);
   
@@ -47,12 +48,13 @@ const StatsPanel = ({ tasks }) => {
           views={['month', 'week', 'day']}
           eventPropGetter={(event) => ({
             style: {
-              backgroundColor: '#10B981',
+              backgroundColor: isHighPriority ? '#EF4444' : '#10B981', //red is high, green is low
               borderRadius: '6px',
               color: 'white',
               padding: '4px',
             },
-          })}
+          };
+          }}
         />
       </div>
     </div>
