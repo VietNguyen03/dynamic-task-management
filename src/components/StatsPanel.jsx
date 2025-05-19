@@ -23,13 +23,16 @@ const localizer = dateFnsLocalizer({
 const StatsPanel = ({ tasks }) => {
   // Convert tasks into calendar events
   const events = useMemo(() => {
-    return tasks.map((task) => ({
-      title: task.text,
-      start: new Date(task.date),
-      end: new Date(task.date),
-      allDay: true,
-    }));
+    return tasks
+      .filter((task) => task.date && !isNaN(new Date(task.date)))
+      .map((task) => ({
+        title: task.text,
+        start: new Date(task.date),
+        end: new Date(task.date),
+        allDay: true,
+      }));
   }, [tasks]);
+  
 
   return (
     <div className="bg-white dark:bg-gray-800 p-4 rounded shadow">

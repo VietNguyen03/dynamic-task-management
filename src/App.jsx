@@ -8,9 +8,8 @@ const App = () => {
   const [tasks, setTasks] = useState(() => {
     const saved = localStorage.getItem('tasks');
     return saved
-  ? JSON.parse(saved).filter(task => task.text && task.date)
-  : [];
-
+      ? JSON.parse(saved).filter(task => task.text && task.date)
+      : [];
   });
 
   useEffect(() => {
@@ -20,10 +19,11 @@ const App = () => {
   return (
     <div className="min-h-screen bg-gray-100 text-gray-800 p-4">
       <div className="max-w-3xl mx-auto">
-        <div className="flex justify-between items-center mb-4">
+        <div className="flex items-center justify-start mb-4">
+          <img src="/logo.png" alt="DTM Logo" className="h-10 mr-3" />
           <h1 className="text-3xl font-bold">Dynamic Task Management</h1>
-
         </div>
+
         <TaskForm tasks={tasks} setTasks={setTasks} />
         <TaskList tasks={tasks} setTasks={setTasks} />
         <StatsPanel tasks={tasks} />
