@@ -15,7 +15,7 @@ const TaskItem = ({ task, toggleComplete, deleteTask }) => {
           {task.text} ({task.priority.charAt(0).toUpperCase() + task.priority.slice(1)})
         </span>
       </div>
-      <button onClick={() => deleteTask(task.id)} className="text-red-500 hover:text-red-700"
+      <button onClick={() => deleteTask(task.id)} className="bg-red-500 text-white text-xl rounded-full p-2 hover:bg-red-600 transition"
       title="Delete Task"
 >
   🗑️
