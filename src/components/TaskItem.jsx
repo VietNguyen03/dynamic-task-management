@@ -3,8 +3,8 @@ import React from 'react';
 
 const TaskItem = ({ task, toggleComplete, deleteTask }) => {
   return (
-    <div className="flex justify-between items-center p-2 border-b">
-      <div>
+    <div className="flex items-center justify-between p-2 border-b">
+      <div className="flex items-center space-x-2">
         <input
           type="checkbox"
           checked={task.completed}
