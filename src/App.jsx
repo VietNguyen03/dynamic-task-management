@@ -20,9 +20,8 @@ const App = () => {
     <div className="min-h-screen bg-gray-100 text-gray-800 p-4">
       <div className="max-w-3xl mx-auto">
         <div className="flex items-center justify-start mb-4">
-        <img src="/Logo.png" alt="DTM Logo" className="h-12 w-auto max-w-[150px] mr-3"
+        <img src="/Logo.png" alt="DTM Logo" className="h-16 w-auto max-w-[200px]"
 />
-          <h1 className="text-3xl font-bold">Dynamic Task Management</h1>
         </div>
 
         <TaskForm tasks={tasks} setTasks={setTasks} />
